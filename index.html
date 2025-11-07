@@ -92,7 +92,6 @@
     <div class="tab-content" id="orders">
         <div class="page-header">
             <h1>📋 Order Management</h1>
-            <p>Manage and track all customer orders</p>
         </div>
 
         <div class="row mb-4">
@@ -188,7 +187,6 @@
     <div class="tab-content" id="items">
         <div class="page-header">
             <h1>🏷️ Item Management</h1>
-            <p>Add, edit, and manage inventory items</p>
         </div>
 
         <div class="row mb-4">
@@ -347,20 +345,240 @@
         </div>
     </div>
 
-    <!-- CUSTOMERS TAB -->
     <div class="tab-content" id="customers">
         <div class="page-header">
             <h1>👥 Customer Management</h1>
-            <p>View, add, and manage customers</p>
         </div>
-        <p>Customer management page coming soon...</p>
+
+        <!-- Statistics Cards -->
+        <div class="row mb-4">
+            <div class="col-md-3">
+                <div class="stats-card">
+                    <div class="stats-icon">👥</div>
+                    <div class="stats-value">328</div>
+                    <div class="stats-label">Total Customers</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stats-card">
+                    <div class="stats-icon">🆕</div>
+                    <div class="stats-value">45</div>
+                    <div class="stats-label">New This Month</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stats-card">
+                    <div class="stats-icon">⭐</div>
+                    <div class="stats-value">156</div>
+                    <div class="stats-label">Active Customers</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stats-card">
+                    <div class="stats-icon">🎂</div>
+                    <div class="stats-value">12</div>
+                    <div class="stats-label">Birthdays This Month</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add New Customer Form -->
+        <div class="content-card">
+            <h3 class="mb-4" style="color: var(--accent);">➕ Add New Customer</h3>
+            <form id="customerForm">
+                <div class="row g-3">
+                    <div class="col-md-3">
+                        <label class="form-label">Customer ID</label>
+                        <input type="text" class="form-control" id="customerId" placeholder="CUST-001" required>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">First Name</label>
+                        <input type="text" class="form-control" id="firstName" placeholder="Enter first name" required>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">Last Name</label>
+                        <input type="text" class="form-control" id="lastName" placeholder="Enter last name" required>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="customer@email.com" required>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">Phone</label>
+                        <input type="tel" class="form-control" id="phone" placeholder="+94 71 234 5678" required>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">Date of Birth</label>
+                        <input type="date" class="form-control" id="dob" required>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">Gender</label>
+                        <div class="d-flex gap-3 mt-2">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gender" id="genderMale" value="Male" required>
+                                <label class="form-check-label" for="genderMale" style="color: #fff;">
+                                    Male
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gender" id="genderFemale" value="Female">
+                                <label class="form-check-label" for="genderFemale" style="color: #fff;">
+                                    Female
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gender" id="genderOther" value="Other">
+                                <label class="form-check-label" for="genderOther" style="color: #fff;">
+                                    Other
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">City</label>
+                        <input type="text" class="form-control" id="city" placeholder="City" required>
+                    </div>
+                    <div class="col-md-9">
+                        <label class="form-label">Address</label>
+                        <textarea class="form-control" id="address" rows="2" placeholder="Enter full address..." required></textarea>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">Postal Code</label>
+                        <input type="text" class="form-control" id="postalCode" placeholder="11000">
+                    </div>
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-accent px-4">➕ Add Customer</button>
+                        <button type="reset" class="btn btn-outline-accent px-4 ms-2">🔄 Reset</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- Customers Table -->
+        <div class="content-card">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h3 style="color: var(--accent); margin: 0;">👥 Customers List</h3>
+                <div class="d-flex gap-2">
+                    <select class="form-select" style="max-width: 200px;">
+                        <option selected>All Genders</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Other</option>
+                    </select>
+                    <input type="text" class="form-control" id="searchCustomer" style="max-width: 300px;" placeholder="🔍 Search customers...">
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>Customer ID</th>
+                        <th>Full Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Date of Birth</th>
+                        <th>Gender</th>
+                        <th>City</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody id="customerTableBody">
+                    <tr>
+                        <td>#CUST-001</td>
+                        <td>John Anderson</td>
+                        <td>john.anderson@email.com</td>
+                        <td>+94 71 234 5678</td>
+                        <td>1990-05-15</td>
+                        <td><span class="badge-status badge-completed">Male</span></td>
+                        <td>Colombo</td>
+                        <td>
+                            <button class="action-btn view me-1" title="View">👁️</button>
+                            <button class="action-btn edit me-1" title="Edit">✏️</button>
+                            <button class="action-btn delete" title="Delete">🗑️</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#CUST-002</td>
+                        <td>Sarah Williams</td>
+                        <td>sarah.w@email.com</td>
+                        <td>+94 77 345 6789</td>
+                        <td>1988-08-22</td>
+                        <td><span class="badge-status badge-pending">Female</span></td>
+                        <td>Kandy</td>
+                        <td>
+                            <button class="action-btn view me-1" title="View">👁️</button>
+                            <button class="action-btn edit me-1" title="Edit">✏️</button>
+                            <button class="action-btn delete" title="Delete">🗑️</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#CUST-003</td>
+                        <td>Michael Brown</td>
+                        <td>m.brown@email.com</td>
+                        <td>+94 76 456 7890</td>
+                        <td>1995-03-10</td>
+                        <td><span class="badge-status badge-completed">Male</span></td>
+                        <td>Galle</td>
+                        <td>
+                            <button class="action-btn view me-1" title="View">👁️</button>
+                            <button class="action-btn edit me-1" title="Edit">✏️</button>
+                            <button class="action-btn delete" title="Delete">🗑️</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#CUST-004</td>
+                        <td>Emma Johnson</td>
+                        <td>emma.j@email.com</td>
+                        <td>+94 75 567 8901</td>
+                        <td>1992-11-30</td>
+                        <td><span class="badge-status badge-pending">Female</span></td>
+                        <td>Negombo</td>
+                        <td>
+                            <button class="action-btn view me-1" title="View">👁️</button>
+                            <button class="action-btn edit me-1" title="Edit">✏️</button>
+                            <button class="action-btn delete" title="Delete">🗑️</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#CUST-005</td>
+                        <td>David Miller</td>
+                        <td>d.miller@email.com</td>
+                        <td>+94 72 678 9012</td>
+                        <td>1987-07-18</td>
+                        <td><span class="badge-status badge-completed">Male</span></td>
+                        <td>Matara</td>
+                        <td>
+                            <button class="action-btn view me-1" title="View">👁️</button>
+                            <button class="action-btn edit me-1" title="Edit">✏️</button>
+                            <button class="action-btn delete" title="Delete">🗑️</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#CUST-006</td>
+                        <td>Sophia Taylor</td>
+                        <td>sophia.t@email.com</td>
+                        <td>+94 74 789 0123</td>
+                        <td>1993-12-05</td>
+                        <td><span class="badge-status badge-pending">Female</span></td>
+                        <td>Jaffna</td>
+                        <td>
+                            <button class="action-btn view me-1" title="View">👁️</button>
+                            <button class="action-btn edit me-1" title="Edit">✏️</button>
+                            <button class="action-btn delete" title="Delete">🗑️</button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
+
 
     <!-- REPORTS TAB -->
     <div class="tab-content" id="reports">
         <div class="page-header">
             <h1>📊 Reports</h1>
-            <p>View detailed reports and analytics</p>
         </div>
 
         <div class="content-card">
