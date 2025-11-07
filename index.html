@@ -7,539 +7,461 @@
 
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="Style.css">
 
-    <style>
-        :root {
-            --bg-dark: #0a0e0d;
-            --panel-dark: #0d1613;
-            --gradient-top: #1a2e2a;
-            --accent: #4CAF50;
-            --accent-hover: #66bb6a;
-            --accent-light: rgba(76,175,80,0.15);
-            --muted: #9e9e9e;
-        }
-
-        body {
-            background-color: var(--bg-dark);
-            color: #fff;
-            font-family: 'Segoe UI', sans-serif;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-
-        /* Main area */
-        main {
-            margin-left: 80px;
-            padding: 2rem;
-            background: var(--panel-dark);
-            min-height: 100vh;
-        }
-
-        .page-header {
-            background: linear-gradient(135deg, var(--gradient-top), var(--panel-dark));
-            border: 2px solid var(--accent);
-            border-radius: 15px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .page-header h1 {
-            color: var(--accent);
-            margin-bottom: 0.5rem;
-        }
-
-        .page-header p {
-            color: var(--muted);
-            margin: 0;
-        }
-
-        .content-card {
-            background: linear-gradient(145deg, var(--gradient-top), var(--panel-dark));
-            border: 1px solid var(--accent-light);
-            border-radius: 12px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .form-label {
-            color: var(--accent);
-            font-weight: 600;
-        }
-
-        .form-control,
-        .form-select {
-            background: var(--accent-light);
-            border: 1px solid var(--accent);
-            color: #fff;
-        }
-
-        .form-control:focus,
-        .form-select:focus {
-            background: var(--accent-light);
-            border-color: var(--accent-hover);
-            color: #fff;
-            box-shadow: 0 0 0 0.25rem rgba(76,175,80,0.25);
-        }
-
-        .form-control::placeholder {
-            color: var(--muted);
-        }
-
-        .btn-accent {
-            background: var(--accent);
-            color: #fff;
-            border: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .btn-accent:hover {
-            background: var(--accent-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(76,175,80,0.4);
-        }
-
-        .btn-outline-accent {
-            background: transparent;
-            color: var(--accent);
-            border: 2px solid var(--accent);
-            font-weight: 600;
-        }
-
-        .btn-outline-accent:hover {
-            background: var(--accent);
-            color: #fff;
-        }
-
-        .table {
-            color: #fff;
-            border-color: var(--accent-light);
-        }
-
-        .table thead {
-            background: var(--accent);
-            color: #fff;
-        }
-
-        .table tbody tr {
-            background: var(--accent-light);
-            border-color: var(--accent-light);
-        }
-
-        .table tbody tr:hover {
-            background: rgba(76,175,80,0.25);
-        }
-
-        .badge-status {
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-weight: 600;
-        }
-
-        .badge-pending {
-            background: rgba(255, 193, 7, 0.2);
-            color: #ffc107;
-            border: 1px solid #ffc107;
-        }
-
-        .badge-completed {
-            background: rgba(76, 175, 80, 0.2);
-            color: var(--accent);
-            border: 1px solid var(--accent);
-        }
-
-        .badge-cancelled {
-            background: rgba(244, 67, 54, 0.2);
-            color: #f44336;
-            border: 1px solid #f44336;
-        }
-
-        .action-btn {
-            width: 35px;
-            height: 35px;
-            border-radius: 8px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: none;
-            font-size: 1.1rem;
-        }
-
-        .action-btn.edit {
-            background: rgba(33, 150, 243, 0.2);
-            color: #2196f3;
-        }
-
-        .action-btn.edit:hover {
-            background: #2196f3;
-            color: #fff;
-        }
-
-        .action-btn.delete {
-            background: rgba(244, 67, 54, 0.2);
-            color: #f44336;
-        }
-
-        .action-btn.delete:hover {
-            background: #f44336;
-            color: #fff;
-        }
-
-        .action-btn.view {
-            background: rgba(156, 39, 176, 0.2);
-            color: #9c27b0;
-        }
-
-        .action-btn.view:hover {
-            background: #9c27b0;
-            color: #fff;
-        }
-
-        .stats-card {
-            background: linear-gradient(135deg, var(--gradient-top), var(--panel-dark));
-            border: 1px solid var(--accent-light);
-            border-radius: 12px;
-            padding: 1.5rem;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .stats-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent);
-            box-shadow: 0 8px 20px rgba(76,175,80,0.3);
-        }
-
-        .stats-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--accent-light);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            margin: 0 auto 1rem;
-        }
-
-        .stats-value {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--accent);
-        }
-
-        .stats-label {
-            color: var(--muted);
-            font-size: 0.9rem;
-        }
-
-        .nav-tabs {
-            border-bottom: 2px solid var(--accent-light);
-        }
-
-        .nav-tabs .nav-link {
-            color: var(--muted);
-            border: none;
-            border-bottom: 3px solid transparent;
-        }
-
-        .nav-tabs .nav-link.active {
-            background: transparent;
-            color: var(--accent);
-            border-bottom-color: var(--accent);
-        }
-
-        .nav-tabs .nav-link:hover {
-            color: var(--accent-hover);
-            border-color: transparent;
-        }
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #2d4a3e 0%, #1a2e2a 100%);
-            padding: 4rem 3%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            min-height: 600px;
-            position: relative;
-            overflow: hidden;
-            border: 2px solid #4CAF50;
-            border-radius: 15px;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(76, 175, 80, 0.15) 0%, transparent 70%);
-            border-radius: 50%;
-        }
-
-        .hero-content {
-            flex: 1;
-            z-index: 2;
-        }
-
-        .hero-badge {
-            background: rgba(76, 175, 80, 0.2);
-            color: #4CAF50;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            display: inline-block;
-            margin-bottom: 1rem;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            color: #fff;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: #b0b0b0;
-            margin-bottom: 2rem;
-        }
-
-
-
-        .btn {
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: none;
-            font-size: 1rem;
-        }
-
-
-
-        .hero-image {
-            flex: 1;
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-image img {
-            width: 100%;
-            max-width: 500px;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-        }
-
-
-        /* Sidebar */
-        .sidebar {
-            background: linear-gradient(180deg, var(--gradient-top), var(--panel-dark));
-            height: 100vh;
-            position: fixed;
-            width: 80px;
-            top: 0;
-            left: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 1rem 0;
-            border-right: 1px solid var(--accent-light);
-            z-index: 1000;
-        }
-
-        .sidebar .icon {
-            width: 50px;
-            height: 50px;
-            background: var(--accent-light);
-            border-radius: 10px;
-            margin: 0.6rem 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.4rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .sidebar .icon:hover,
-        .sidebar .icon.active {
-            background-color: var(--accent);
-            color: #fff;
-            transform: scale(1.05);
-        }
-
-        /* Main area */
-        main {
-            margin-left: 80px;
-            padding: 2rem;
-            background: var(--panel-dark);
-            min-height: 100vh;
-        }
-
-        .category-btn {
-            border: 1px solid var(--accent);
-            color: var(--accent);
-            border-radius: 8px;
-            background: transparent;
-            padding: 0.5rem 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .category-btn:hover, .category-btn.active {
-            background-color: var(--accent);
-            color: #fff;
-        }
-
-        .product-card {
-            background: linear-gradient(145deg, var(--gradient-top), var(--panel-dark));
-            border: 1px solid var(--accent-light);
-            color: #fff;
-            border-radius: 12px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent);
-            box-shadow: 0 5px 15px rgba(76,175,80,0.3);
-        }
-
-        .product-price {
-            color: var(--accent);
-            font-weight: bold;
-        }
-
-        /* Offcanvas cart */
-        .offcanvas {
-            background: linear-gradient(180deg, var(--gradient-top), var(--panel-dark));
-            color: #fff;
-        }
-
-        .offcanvas-header {
-            border-bottom: 1px solid var(--accent-light);
-        }
-
-        .offcanvas-body {
-            max-height: calc(100vh - 200px);
-            overflow-y: auto;
-        }
-
-        .btn-accent {
-            background: var(--accent);
-            color: #fff;
-            border: none;
-            font-weight: 600;
-        }
-
-        .btn-accent:hover {
-            background: var(--accent-hover);
-        }
-
-        .cart-item {
-            background: var(--accent-light);
-            border-radius: 10px;
-            padding: 0.8rem;
-        }
-
-        .cart-item .price {
-            color: var(--accent);
-            font-weight: 600;
-        }
-
-        .cart-footer {
-            border-top: 1px solid var(--accent-light);
-            padding-top: 1rem;
-        }
-
-        .search-input {
-            max-width: 300px;
-        }
-    </style>
 </head>
 <body>
-
-<!-- Sidebar -->
+<!-- SIDEBAR -->
 <div class="sidebar">
-    <button class="icon active" title="Dashboard">🏠</button>
-    <button class="nav-link active , icon" id="orders-tab" data-bs-toggle="tab" data-bs-target="#orders" type="button">
-        📋
-    </button>
-    <button class="nav-link , icon" id="items-tab" data-bs-toggle="tab" data-bs-target="#items" type="button">
-        📦
-    </button>
-
-    <button class="icon" title="Customers">👥</button>
-    <button class="icon" title="Reports">📊</button>
+    <div class="icon active" title="Dashboard" data-target="dashboard">🏠</div>
+    <div class="icon" title="Orders" data-target="orders">📋</div>
+    <div class="icon" title="Items" data-target="items">📦</div>
+    <div class="icon" title="Customers" data-target="customers">👥</div>
+    <div class="icon" title="Reports" data-target="reports">📊</div>
 </div>
 
 <!-- Main content -->
 <main>
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <div class="hero-badge">EXISTING MEMBER</div>
-            <h1>Welcome to<br>Fashion Paradise</h1>
-            <p>Discover the latest trends and elevate your style with our exclusive collection</p>
+    <!-- DASHBOARD TAB -->
+    <div class="tab-content active" id="dashboard">
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-badge">EXISTING MEMBER</div>
+                <h1>Welcome to<br>Fashion Paradise</h1>
+                <p>Discover the latest trends and elevate your style with our exclusive collection</p>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=500&h=700&fit=crop" alt="Fashion">
+            </div>
+        </section>
+        <br><br>
 
+        <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+            <h2 class="mb-0">Latest Arrivals</h2>
+            <input type="text" id="searchBar" class="form-control search-input" placeholder="Search product...">
+            <button class="btn btn-accent" data-bs-toggle="offcanvas" data-bs-target="#cartPanel">🛒 Cart</button>
         </div>
-        <div class="hero-image">
-            <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=500&h=700&fit=crop" alt="Fashion">
+        <br><br>
+
+        <div class="mb-3 d-flex gap-2 flex-wrap">
+            <button class="category-btn active">All</button>
+            <button class="category-btn">Watches</button>
+            <button class="category-btn">Shoes</button>
+            <button class="category-btn">Clothing</button>
+            <button class="category-btn">Accessories</button>
         </div>
-    </section>
-    <br>
-    <br>
-    <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
-        <h2 class="mb-0">Latest Arrivals</h2>
-        <input type="text" id="searchBar" class="form-control search-input" placeholder="Search product...">
-        <button class="btn btn-accent" data-bs-toggle="offcanvas" data-bs-target="#cartPanel">🛒 Cart</button>
+        <br>
+
+        <div class="row g-3" id="productList">
+            <div class="col-md-3">
+                <div class="card product-card text-center p-3" data-name="Silver Watch" data-category="Watches">
+                    <div class="fs-1 mb-2">⌚</div>
+                    <h5>Silver Watch</h5>
+                    <p class="product-price">Rs. 4000.00</p>
+                    <button class="btn btn-sm btn-accent add-cart">Add to Cart</button>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card product-card text-center p-3" data-name="Red Maxi" data-category="Clothing">
+                    <div class="fs-1 mb-2">👗</div>
+                    <h5>Red Maxi</h5>
+                    <p class="product-price">Rs. 3200.00</p>
+                    <button class="btn btn-sm btn-accent add-cart">Add to Cart</button>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card product-card text-center p-3" data-name="Nike Air" data-category="Shoes">
+                    <div class="fs-1 mb-2">👟</div>
+                    <h5>Nike Air</h5>
+                    <p class="product-price">Rs. 8500.00</p>
+                    <button class="btn btn-sm btn-accent add-cart">Add to Cart</button>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card product-card text-center p-3" data-name="Leather Bag" data-category="Accessories">
+                    <div class="fs-1 mb-2">👜</div>
+                    <h5>Leather Bag</h5>
+                    <p class="product-price">Rs. 7200.00</p>
+                    <button class="btn btn-sm btn-accent add-cart">Add to Cart</button>
+                </div>
+            </div>
+        </div>
     </div>
-    <br>
-    <br>
-    <div class="mb-3 d-flex gap-2 flex-wrap">
-        <button class="category-btn active">All</button>
-        <button class="category-btn">Watches</button>
-        <button class="category-btn">Shoes</button>
-        <button class="category-btn">Clothing</button>
-        <button class="category-btn">Accessories</button>
+
+    <!-- ORDERS TAB -->
+    <div class="tab-content" id="orders">
+        <div class="page-header">
+            <h1>📋 Order Management</h1>
+            <p>Manage and track all customer orders</p>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-md-3">
+                <div class="stats-card">
+                    <div class="stats-icon">📦</div>
+                    <div class="stats-value">142</div>
+                    <div class="stats-label">Total Orders</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stats-card">
+                    <div class="stats-icon">⏳</div>
+                    <div class="stats-value">28</div>
+                    <div class="stats-label">Pending Orders</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stats-card">
+                    <div class="stats-icon">✅</div>
+                    <div class="stats-value">98</div>
+                    <div class="stats-label">Completed Orders</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stats-card">
+                    <div class="stats-icon">💰</div>
+                    <div class="stats-value">Rs. 1.2M</div>
+                    <div class="stats-label">Total Revenue</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h3 class="mb-4" style="color: var(--accent);">➕ Add New Order</h3>
+            <form>
+                <div class="row g-3">
+                    <div class="col-md-3">
+                        <label class="form-label">Order ID</label>
+                        <input type="text" class="form-control" placeholder="ORD-001" required>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">Customer Name</label>
+                        <input type="text" class="form-control" placeholder="Enter customer name" required>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">Order Date</label>
+                        <input type="date" class="form-control" required>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">Status</label>
+                        <select class="form-select" required>
+                            <option selected>Pending</option>
+                            <option>Processing</option>
+                            <option>Completed</option>
+                            <option>Cancelled</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">Product</label>
+                        <input type="text" class="form-control" placeholder="Product name" required>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="form-label">Quantity</label>
+                        <input type="number" class="form-control" placeholder="0" min="1" required>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">Total Amount</label>
+                        <input type="text" class="form-control" placeholder="Rs. 0.00" required>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">Payment Method</label>
+                        <select class="form-select" required>
+                            <option selected>Cash</option>
+                            <option>Card</option>
+                            <option>Online</option>
+                        </select>
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label">Notes</label>
+                        <textarea class="form-control" rows="2" placeholder="Additional notes..."></textarea>
+                    </div>
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-accent px-4">➕ Add Order</button>
+                        <button type="reset" class="btn btn-outline-accent px-4 ms-2">🔄 Reset</button>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
-    <br>
-    <div class="row g-3" id="productList">
-        <div class="col-md-3">
-            <div class="card product-card text-center p-3" data-name="Silver Watch"  data-category="Watches">
-                <div class="fs-1 mb-2">⌚</div>
-                <h5>Silver Watch</h5>
-                <p class="product-price">Rs. 4000.00</p>
-                <button class="btn btn-sm btn-accent add-cart">Add to Cart</button>
+
+    <!-- ITEMS TAB -->
+    <div class="tab-content" id="items">
+        <div class="page-header">
+            <h1>🏷️ Item Management</h1>
+            <p>Add, edit, and manage inventory items</p>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-md-3">
+                <div class="stats-card">
+                    <div class="stats-icon">📦</div>
+                    <div class="stats-value">245</div>
+                    <div class="stats-label">Total Items</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stats-card">
+                    <div class="stats-icon">✅</div>
+                    <div class="stats-value">198</div>
+                    <div class="stats-label">In Stock</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stats-card">
+                    <div class="stats-icon">⚠️</div>
+                    <div class="stats-value">32</div>
+                    <div class="stats-label">Low Stock</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stats-card">
+                    <div class="stats-icon">❌</div>
+                    <div class="stats-value">15</div>
+                    <div class="stats-label">Out of Stock</div>
+                </div>
             </div>
         </div>
-        <div class="col-md-3">
-            <div class="card product-card text-center p-3" data-name="Red Maxi"  data-category="Clothing">
-                <div class="fs-1 mb-2">👗</div>
-                <h5>Red Maxi</h5>
-                <p class="product-price">Rs. 3200.00</p>
-                <button class="btn btn-sm btn-accent add-cart">Add to Cart</button>
+
+        <div class="content-card">
+            <h3 class="mb-4" style="color: var(--accent);">➕ Add New Item</h3>
+            <form>
+                <div class="row g-3">
+                    <div class="col-md-3">
+                        <label class="form-label">Item Code</label>
+                        <input type="text" class="form-control" placeholder="ITM-001" required>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">Item Name</label>
+                        <input type="text" class="form-control" placeholder="Enter item name" required>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">Category</label>
+                        <select class="form-select" required>
+                            <option selected>Select category</option>
+                            <option>Watches</option>
+                            <option>Shoes</option>
+                            <option>Clothing</option>
+                            <option>Accessories</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">Brand</label>
+                        <input type="text" class="form-control" placeholder="Brand name" required>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">Unit Price</label>
+                        <input type="text" class="form-control" placeholder="Rs. 0.00" required>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">Quantity in Stock</label>
+                        <input type="number" class="form-control" placeholder="0" min="0" required>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">Reorder Level</label>
+                        <input type="number" class="form-control" placeholder="0" min="0" required>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">Supplier</label>
+                        <input type="text" class="form-control" placeholder="Supplier name" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Description</label>
+                        <textarea class="form-control" rows="3" placeholder="Item description..."></textarea>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Additional Notes</label>
+                        <textarea class="form-control" rows="3" placeholder="Any additional information..."></textarea>
+                    </div>
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-accent px-4">➕ Add Item</button>
+                        <button type="reset" class="btn btn-outline-accent px-4 ms-2">🔄 Reset</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="content-card">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h3 style="color: var(--accent); margin: 0;">🏷️ Items List</h3>
+                <div class="d-flex gap-2">
+                    <select class="form-select" style="max-width: 200px;">
+                        <option selected>All Categories</option>
+                        <option>Watches</option>
+                        <option>Shoes</option>
+                        <option>Clothing</option>
+                        <option>Accessories</option>
+                    </select>
+                    <input type="text" class="form-control" style="max-width: 300px;" placeholder="🔍 Search items...">
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>Code</th>
+                        <th>Item Name</th>
+                        <th>Category</th>
+                        <th>Brand</th>
+                        <th>Unit Price</th>
+                        <th>Stock Qty</th>
+                        <th>Reorder Level</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>#ITM-001</td>
+                        <td>Silver Watch</td>
+                        <td>Watches</td>
+                        <td>Rolex</td>
+                        <td>Rs. 4,000.00</td>
+                        <td>25</td>
+                        <td>10</td>
+                        <td><span class="badge-status badge-completed">In Stock</span></td>
+                        <td>
+                            <button class="action-btn view me-1" title="View">👁️</button>
+                            <button class="action-btn edit me-1" title="Edit">✏️</button>
+                            <button class="action-btn delete" title="Delete">🗑️</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#ITM-006</td>
+                        <td>Skinny Jeans</td>
+                        <td>Clothing</td>
+                        <td>Levi's</td>
+                        <td>Rs. 2,900.00</td>
+                        <td>40</td>
+                        <td>20</td>
+                        <td><span class="badge-status badge-completed">In Stock</span></td>
+                        <td>
+                            <button class="action-btn view me-1" title="View">👁️</button>
+                            <button class="action-btn edit me-1" title="Edit">✏️</button>
+                            <button class="action-btn delete" title="Delete">🗑️</button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
-        <div class="col-md-3">
-            <div class="card product-card text-center p-3" data-name="Nike Air"  data-category="Shoes">
-                <div class="fs-1 mb-2">👟</div>
-                <h5>Nike Air</h5>
-                <p class="product-price">Rs. 8500.00</p>
-                <button class="btn btn-sm btn-accent add-cart">Add to Cart</button>
-            </div>
+    </div>
+
+    <!-- CUSTOMERS TAB -->
+    <div class="tab-content" id="customers">
+        <div class="page-header">
+            <h1>👥 Customer Management</h1>
+            <p>View, add, and manage customers</p>
         </div>
-        <div class="col-md-3">
-            <div class="card product-card text-center p-3" data-name="Leather Bag"  data-category="Accessories">
-                <div class="fs-1 mb-2">👜</div>
-                <h5>Leather Bag</h5>
-                <p class="product-price">Rs. 7200.00</p>
-                <button class="btn btn-sm btn-accent add-cart">Add to Cart</button>
+        <p>Customer management page coming soon...</p>
+    </div>
+
+    <!-- REPORTS TAB -->
+    <div class="tab-content" id="reports">
+        <div class="page-header">
+            <h1>📊 Reports</h1>
+            <p>View detailed reports and analytics</p>
+        </div>
+
+        <div class="content-card">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h3 style="color: var(--accent); margin: 0;">📋 Orders List</h3>
+                <input type="text" class="form-control" style="max-width: 300px;" placeholder="🔍 Search orders...">
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Customer</th>
+                        <th>Date</th>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Amount</th>
+                        <th>Payment</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>#ORD-593</td>
+                        <td>John Doe</td>
+                        <td>2025-06-27</td>
+                        <td>Silver Watch</td>
+                        <td>2</td>
+                        <td>Rs. 8,000.00</td>
+                        <td>Card</td>
+                        <td><span class="badge-status badge-completed">Completed</span></td>
+                        <td>
+                            <button class="action-btn view me-1" title="View">👁️</button>
+                            <button class="action-btn edit me-1" title="Edit">✏️</button>
+                            <button class="action-btn delete" title="Delete">🗑️</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#ORD-594</td>
+                        <td>Jane Smith</td>
+                        <td>2025-06-28</td>
+                        <td>Red Maxi Dress</td>
+                        <td>1</td>
+                        <td>Rs. 3,200.00</td>
+                        <td>Cash</td>
+                        <td><span class="badge-status badge-pending">Pending</span></td>
+                        <td>
+                            <button class="action-btn view me-1" title="View">👁️</button>
+                            <button class="action-btn edit me-1" title="Edit">✏️</button>
+                            <button class="action-btn delete" title="Delete">🗑️</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#ORD-595</td>
+                        <td>Mike Johnson</td>
+                        <td>2025-06-28</td>
+                        <td>Nike Air Shoes</td>
+                        <td>1</td>
+                        <td>Rs. 8,500.00</td>
+                        <td>Online</td>
+                        <td><span class="badge-status badge-completed">Completed</span></td>
+                        <td>
+                            <button class="action-btn view me-1" title="View">👁️</button>
+                            <button class="action-btn edit me-1" title="Edit">✏️</button>
+                            <button class="action-btn delete" title="Delete">🗑️</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#ORD-596</td>
+                        <td>Sarah Wilson</td>
+                        <td>2025-06-29</td>
+                        <td>Leather Bag</td>
+                        <td>1</td>
+                        <td>Rs. 7,200.00</td>
+                        <td>Card</td>
+                        <td><span class="badge-status badge-pending">Pending</span></td>
+                        <td>
+                            <button class="action-btn view me-1" title="View">👁️</button>
+                            <button class="action-btn edit me-1" title="Edit">✏️</button>
+                            <button class="action-btn delete" title="Delete">🗑️</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#ORD-597</td>
+                        <td>David Brown</td>
+                        <td>2025-06-29</td>
+                        <td>Navy Blue Watch</td>
+                        <td>3</td>
+                        <td>Rs. 6,300.00</td>
+                        <td>Cash</td>
+                        <td><span class="badge-status badge-cancelled">Cancelled</span></td>
+                        <td>
+                            <button class="action-btn view me-1" title="View">👁️</button>
+                            <button class="action-btn edit me-1" title="Edit">✏️</button>
+                            <button class="action-btn delete" title="Delete">🗑️</button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
@@ -557,580 +479,14 @@
     <div class="cart-footer p-3">
         <div class="d-flex justify-content-between mb-2">
             <span>Total:</span>
-            <span id="totalValue">0.00</span>
+            <span id="totalValue">Rs. 0.00</span>
         </div>
         <button class="btn btn-accent w-100">Checkout</button>
     </div>
 </div>
-<main>
-    <!-- Navigation Tabs -->
-<!--    <ul class="nav nav-tabs mb-4" id="mainTabs" role="tablist">-->
-<!--        <li class="nav-item" role="presentation">-->
-<!--&lt;!&ndash;            <button class="nav-link active" id="orders-tab" data-bs-toggle="tab" data-bs-target="#orders" type="button">&ndash;&gt;-->
-<!--&lt;!&ndash;                📋 Orders Management&ndash;&gt;-->
-<!--&lt;!&ndash;            </button>&ndash;&gt;-->
-<!--        </li>-->
-<!--        <li class="nav-item" role="presentation">-->
-<!--            <button class="nav-link" id="items-tab" data-bs-toggle="tab" data-bs-target="#items" type="button">-->
-<!--                🏷️ Items Management-->
-<!--            </button>-->
-<!--        </li>-->
-<!--    </ul>-->
 
-    <div class="tab-content" id="mainTabsContent">
-
-        <!-- ORDERS TAB -->
-        <div class="tab-pane fade show active" id="orders" role="tabpanel">
-
-            <!-- Page Header -->
-            <div class="page-header">
-                <h1>📋 Order Management</h1>
-                <p>Manage and track all customer orders</p>
-            </div>
-
-            <!-- Statistics Cards -->
-            <div class="row mb-4">
-                <div class="col-md-3">
-                    <div class="stats-card">
-                        <div class="stats-icon">📦</div>
-                        <div class="stats-value">142</div>
-                        <div class="stats-label">Total Orders</div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="stats-card">
-                        <div class="stats-icon">⏳</div>
-                        <div class="stats-value">28</div>
-                        <div class="stats-label">Pending Orders</div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="stats-card">
-                        <div class="stats-icon">✅</div>
-                        <div class="stats-value">98</div>
-                        <div class="stats-label">Completed Orders</div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="stats-card">
-                        <div class="stats-icon">💰</div>
-                        <div class="stats-value">Rs. 1.2M</div>
-                        <div class="stats-label">Total Revenue</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Add New Order Form -->
-            <div class="content-card">
-                <h3 class="mb-4" style="color: var(--accent);">➕ Add New Order</h3>
-                <form>
-                    <div class="row g-3">
-                        <div class="col-md-3">
-                            <label class="form-label">Order ID</label>
-                            <input type="text" class="form-control" placeholder="ORD-001" required>
-                        </div>
-                        <div class="col-md-3">
-                            <label class="form-label">Customer Name</label>
-                            <input type="text" class="form-control" placeholder="Enter customer name" required>
-                        </div>
-                        <div class="col-md-3">
-                            <label class="form-label">Order Date</label>
-                            <input type="date" class="form-control" required>
-                        </div>
-                        <div class="col-md-3">
-                            <label class="form-label">Status</label>
-                            <select class="form-select" required>
-                                <option selected>Pending</option>
-                                <option>Processing</option>
-                                <option>Completed</option>
-                                <option>Cancelled</option>
-                            </select>
-                        </div>
-                        <div class="col-md-4">
-                            <label class="form-label">Product</label>
-                            <input type="text" class="form-control" placeholder="Product name" required>
-                        </div>
-                        <div class="col-md-2">
-                            <label class="form-label">Quantity</label>
-                            <input type="number" class="form-control" placeholder="0" min="1" required>
-                        </div>
-                        <div class="col-md-3">
-                            <label class="form-label">Total Amount</label>
-                            <input type="text" class="form-control" placeholder="Rs. 0.00" required>
-                        </div>
-                        <div class="col-md-3">
-                            <label class="form-label">Payment Method</label>
-                            <select class="form-select" required>
-                                <option selected>Cash</option>
-                                <option>Card</option>
-                                <option>Online</option>
-                            </select>
-                        </div>
-                        <div class="col-12">
-                            <label class="form-label">Notes</label>
-                            <textarea class="form-control" rows="2" placeholder="Additional notes..."></textarea>
-                        </div>
-                        <div class="col-12">
-                            <button type="submit" class="btn btn-accent px-4">
-                                ➕ Add Order
-                            </button>
-                            <button type="reset" class="btn btn-outline-accent px-4 ms-2">
-                                🔄 Reset
-                            </button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-
-            <!-- Orders Table -->
-            <div class="content-card">
-                <div class="d-flex justify-content-between align-items-center mb-4">
-                    <h3 style="color: var(--accent); margin: 0;">📋 Orders List</h3>
-                    <input type="text" class="form-control" style="max-width: 300px;" placeholder="🔍 Search orders...">
-                </div>
-
-                <div class="table-responsive">
-                    <table class="table table-hover">
-                        <thead>
-                        <tr>
-                            <th>Order ID</th>
-                            <th>Customer</th>
-                            <th>Date</th>
-                            <th>Product</th>
-                            <th>Quantity</th>
-                            <th>Amount</th>
-                            <th>Payment</th>
-                            <th>Status</th>
-                            <th>Actions</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td>#ORD-593</td>
-                            <td>John Doe</td>
-                            <td>2025-06-27</td>
-                            <td>Silver Watch</td>
-                            <td>2</td>
-                            <td>Rs. 8,000.00</td>
-                            <td>Card</td>
-                            <td><span class="badge-status badge-completed">Completed</span></td>
-                            <td>
-                                <button class="action-btn view me-1" title="View">👁️</button>
-                                <button class="action-btn edit me-1" title="Edit">✏️</button>
-                                <button class="action-btn delete" title="Delete">🗑️</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>#ORD-594</td>
-                            <td>Jane Smith</td>
-                            <td>2025-06-28</td>
-                            <td>Red Maxi Dress</td>
-                            <td>1</td>
-                            <td>Rs. 3,200.00</td>
-                            <td>Cash</td>
-                            <td><span class="badge-status badge-pending">Pending</span></td>
-                            <td>
-                                <button class="action-btn view me-1" title="View">👁️</button>
-                                <button class="action-btn edit me-1" title="Edit">✏️</button>
-                                <button class="action-btn delete" title="Delete">🗑️</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>#ORD-595</td>
-                            <td>Mike Johnson</td>
-                            <td>2025-06-28</td>
-                            <td>Nike Air Shoes</td>
-                            <td>1</td>
-                            <td>Rs. 8,500.00</td>
-                            <td>Online</td>
-                            <td><span class="badge-status badge-completed">Completed</span></td>
-                            <td>
-                                <button class="action-btn view me-1" title="View">👁️</button>
-                                <button class="action-btn edit me-1" title="Edit">✏️</button>
-                                <button class="action-btn delete" title="Delete">🗑️</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>#ORD-596</td>
-                            <td>Sarah Wilson</td>
-                            <td>2025-06-29</td>
-                            <td>Leather Bag</td>
-                            <td>1</td>
-                            <td>Rs. 7,200.00</td>
-                            <td>Card</td>
-                            <td><span class="badge-status badge-pending">Pending</span></td>
-                            <td>
-                                <button class="action-btn view me-1" title="View">👁️</button>
-                                <button class="action-btn edit me-1" title="Edit">✏️</button>
-                                <button class="action-btn delete" title="Delete">🗑️</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>#ORD-597</td>
-                            <td>David Brown</td>
-                            <td>2025-06-29</td>
-                            <td>Navy Blue Watch</td>
-                            <td>3</td>
-                            <td>Rs. 6,300.00</td>
-                            <td>Cash</td>
-                            <td><span class="badge-status badge-cancelled">Cancelled</span></td>
-                            <td>
-                                <button class="action-btn view me-1" title="View">👁️</button>
-                                <button class="action-btn edit me-1" title="Edit">✏️</button>
-                                <button class="action-btn delete" title="Delete">🗑️</button>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-        <!-- ITEMS TAB -->
-        <div class="tab-pane fade" id="items" role="tabpanel">
-
-            <!-- Page Header -->
-            <div class="page-header">
-                <h1>🏷️ Item Management</h1>
-                <p>Add, edit, and manage inventory items</p>
-            </div>
-
-            <!-- Statistics Cards -->
-            <div class="row mb-4">
-                <div class="col-md-3">
-                    <div class="stats-card">
-                        <div class="stats-icon">📦</div>
-                        <div class="stats-value">245</div>
-                        <div class="stats-label">Total Items</div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="stats-card">
-                        <div class="stats-icon">✅</div>
-                        <div class="stats-value">198</div>
-                        <div class="stats-label">In Stock</div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="stats-card">
-                        <div class="stats-icon">⚠️</div>
-                        <div class="stats-value">32</div>
-                        <div class="stats-label">Low Stock</div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="stats-card">
-                        <div class="stats-icon">❌</div>
-                        <div class="stats-value">15</div>
-                        <div class="stats-label">Out of Stock</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Add New Item Form -->
-            <div class="content-card">
-                <h3 class="mb-4" style="color: var(--accent);">➕ Add New Item</h3>
-                <form>
-                    <div class="row g-3">
-                        <div class="col-md-3">
-                            <label class="form-label">Item Code</label>
-                            <input type="text" class="form-control" placeholder="ITM-001" required>
-                        </div>
-                        <div class="col-md-3">
-                            <label class="form-label">Item Name</label>
-                            <input type="text" class="form-control" placeholder="Enter item name" required>
-                        </div>
-                        <div class="col-md-3">
-                            <label class="form-label">Category</label>
-                            <select class="form-select" required>
-                                <option selected>Select category</option>
-                                <option>Watches</option>
-                                <option>Shoes</option>
-                                <option>Clothing</option>
-                                <option>Accessories</option>
-                            </select>
-                        </div>
-                        <div class="col-md-3">
-                            <label class="form-label">Brand</label>
-                            <input type="text" class="form-control" placeholder="Brand name" required>
-                        </div>
-                        <div class="col-md-3">
-                            <label class="form-label">Unit Price</label>
-                            <input type="text" class="form-control" placeholder="Rs. 0.00" required>
-                        </div>
-                        <div class="col-md-3">
-                            <label class="form-label">Quantity in Stock</label>
-                            <input type="number" class="form-control" placeholder="0" min="0" required>
-                        </div>
-                        <div class="col-md-3">
-                            <label class="form-label">Reorder Level</label>
-                            <input type="number" class="form-control" placeholder="0" min="0" required>
-                        </div>
-                        <div class="col-md-3">
-                            <label class="form-label">Supplier</label>
-                            <input type="text" class="form-control" placeholder="Supplier name" required>
-                        </div>
-                        <div class="col-md-6">
-                            <label class="form-label">Description</label>
-                            <textarea class="form-control" rows="3" placeholder="Item description..."></textarea>
-                        </div>
-                        <div class="col-md-6">
-                            <label class="form-label">Additional Notes</label>
-                            <textarea class="form-control" rows="3" placeholder="Any additional information..."></textarea>
-                        </div>
-                        <div class="col-12">
-                            <button type="submit" class="btn btn-accent px-4">
-                                ➕ Add Item
-                            </button>
-                            <button type="reset" class="btn btn-outline-accent px-4 ms-2">
-                                🔄 Reset
-                            </button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-
-            <!-- Items Table -->
-            <div class="content-card">
-                <div class="d-flex justify-content-between align-items-center mb-4">
-                    <h3 style="color: var(--accent); margin: 0;">🏷️ Items List</h3>
-                    <div class="d-flex gap-2">
-                        <select class="form-select" style="max-width: 200px;">
-                            <option selected>All Categories</option>
-                            <option>Watches</option>
-                            <option>Shoes</option>
-                            <option>Clothing</option>
-                            <option>Accessories</option>
-                        </select>
-                        <input type="text" class="form-control" style="max-width: 300px;" placeholder="🔍 Search items...">
-                    </div>
-                </div>
-
-                <div class="table-responsive">
-                    <table class="table table-hover">
-                        <thead>
-                        <tr>
-                            <th>Code</th>
-                            <th>Item Name</th>
-                            <th>Category</th>
-                            <th>Brand</th>
-                            <th>Unit Price</th>
-                            <th>Stock Qty</th>
-                            <th>Reorder Level</th>
-                            <th>Status</th>
-                            <th>Actions</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td>#ITM-001</td>
-                            <td>Silver Watch</td>
-                            <td>Watches</td>
-                            <td>Rolex</td>
-                            <td>Rs. 4,000.00</td>
-                            <td>25</td>
-                            <td>10</td>
-                            <td><span class="badge-status badge-completed">In Stock</span></td>
-                            <td>
-                                <button class="action-btn view me-1" title="View">👁️</button>
-                                <button class="action-btn edit me-1" title="Edit">✏️</button>
-                                <button class="action-btn delete" title="Delete">🗑️</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>#ITM-002</td>
-                            <td>Navy Blue Watch</td>
-                            <td>Watches</td>
-                            <td>Casio</td>
-                            <td>Rs. 2,100.00</td>
-                            <td>15</td>
-                            <td>10</td>
-                            <td><span class="badge-status badge-completed">In Stock</span></td>
-                            <td>
-                                <button class="action-btn view me-1" title="View">👁️</button>
-                                <button class="action-btn edit me-1" title="Edit">✏️</button>
-                                <button class="action-btn delete" title="Delete">🗑️</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>#ITM-003</td>
-                            <td>Nike Air Shoes</td>
-                            <td>Shoes</td>
-                            <td>Nike</td>
-                            <td>Rs. 8,500.00</td>
-                            <td>8</td>
-                            <td>10</td>
-                            <td><span class="badge-status badge-pending">Low Stock</span></td>
-                            <td>
-                                <button class="action-btn view me-1" title="View">👁️</button>
-                                <button class="action-btn edit me-1" title="Edit">✏️</button>
-                                <button class="action-btn delete" title="Delete">🗑️</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>#ITM-004</td>
-                            <td>Red Maxi Dress</td>
-                            <td>Clothing</td>
-                            <td>Zara</td>
-                            <td>Rs. 3,200.00</td>
-                            <td>30</td>
-                            <td>15</td>
-                            <td><span class="badge-status badge-completed">In Stock</span></td>
-                            <td>
-                                <button class="action-btn view me-1" title="View">👁️</button>
-                                <button class="action-btn edit me-1" title="Edit">✏️</button>
-                                <button class="action-btn delete" title="Delete">🗑️</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>#ITM-005</td>
-                            <td>Leather Bag</td>
-                            <td>Accessories</td>
-                            <td>Gucci</td>
-                            <td>Rs. 7,200.00</td>
-                            <td>0</td>
-                            <td>5</td>
-                            <td><span class="badge-status badge-cancelled">Out of Stock</span></td>
-                            <td>
-                                <button class="action-btn view me-1" title="View">👁️</button>
-                                <button class="action-btn edit me-1" title="Edit">✏️</button>
-                                <button class="action-btn delete" title="Delete">🗑️</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>#ITM-006</td>
-                            <td>Skinny Jeans</td>
-                            <td>Clothing</td>
-                            <td>Levi's</td>
-                            <td>Rs. 2,900.00</td>
-                            <td>40</td>
-                            <td>20</td>
-                            <td><span class="badge-status badge-completed">In Stock</span></td>
-                            <td>
-                                <button class="action-btn view me-1" title="View">👁️</button>
-                                <button class="action-btn edit me-1" title="Edit">✏️</button>
-                                <button class="action-btn delete" title="Delete">🗑️</button>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-</main>
 <!-- Bootstrap Bundle -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-    const cartItems = document.getElementById('cartItems');
-    const totalValue = document.getElementById('totalValue');
-
-    // ---------------- CART LOGIC ----------------
-    document.querySelectorAll('.add-cart').forEach(btn => {
-        btn.addEventListener('click', e => {
-            const card = e.target.closest('.product-card');
-            const name = card.querySelector('h5').textContent;
-            const price = parseFloat(card.querySelector('.product-price').textContent.replace('Rs. ', ''));
-            addToCart(name, price);
-        });
-    });
-
-    function addToCart(name, price) {
-        const existing = Array.from(cartItems.children).find(item => item.querySelector('.name').textContent === name);
-        if (existing) {
-            const qtyDisplay = existing.querySelector('.qty');
-            qtyDisplay.textContent = parseInt(qtyDisplay.textContent) + 1;
-        } else {
-            const div = document.createElement('div');
-            div.className = 'cart-item mb-3';
-            div.innerHTML = `
-            <div class="d-flex justify-content-between align-items-center">
-                <div>
-                    <div class="name fw-bold">${name}</div>
-                    <div class="price">Rs. ${price.toFixed(2)}</div>
-                    <div class="mt-1">
-                        <button class="btn btn-sm btn-accent minus">-</button>
-                        <span class="qty px-2">1</span>
-                        <button class="btn btn-sm btn-accent plus">+</button>
-                    </div>
-                </div>
-                <button class="btn btn-danger btn-sm remove">×</button>
-            </div>
-        `;
-            cartItems.appendChild(div);
-        }
-        updateTotal();
-        setupCartHandlers();
-    }
-
-    function updateTotal() {
-        let total = 0;
-        document.querySelectorAll('.cart-item').forEach(item => {
-            const price = parseFloat(item.querySelector('.price').textContent.replace('Rs. ', ''));
-            const qty = parseInt(item.querySelector('.qty').textContent);
-            total += price * qty;
-        });
-        totalValue.textContent = total.toFixed(2);
-    }
-
-    function setupCartHandlers() {
-        document.querySelectorAll('.plus').forEach(btn => {
-            btn.onclick = () => {
-                const qty = btn.parentElement.querySelector('.qty');
-                qty.textContent = parseInt(qty.textContent) + 1;
-                updateTotal();
-            };
-        });
-        document.querySelectorAll('.minus').forEach(btn => {
-            btn.onclick = () => {
-                const qty = btn.parentElement.querySelector('.qty');
-                let val = parseInt(qty.textContent);
-                if (val > 1) qty.textContent = val - 1;
-                updateTotal();
-            };
-        });
-        document.querySelectorAll('.remove').forEach(btn => {
-            btn.onclick = () => {
-                btn.closest('.cart-item').remove();
-                updateTotal();
-            };
-        });
-    }
-
-    // ---------------- SEARCH BAR FILTER ----------------
-    document.getElementById('searchBar').addEventListener('keyup', function() {
-        const searchTerm = this.value.toLowerCase();
-        document.querySelectorAll('#productList .product-card').forEach(card => {
-            const name = card.getAttribute('data-name').toLowerCase();
-            card.parentElement.style.display = name.includes(searchTerm) ? 'block' : 'none';
-        });
-    });
-
-    // ---------------- CATEGORY FILTER ----------------
-    const categoryButtons = document.querySelectorAll('.category-btn');
-    const products = document.querySelectorAll('.product-card');
-
-    categoryButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            // remove active class from others
-            categoryButtons.forEach(btn => btn.classList.remove('active'));
-            button.classList.add('active');
-
-            const category = button.textContent.trim();
-
-            products.forEach(product => {
-                const productCategory = product.getAttribute('data-category');
-                if (category === 'All' || productCategory === category) {
-                    product.parentElement.style.display = 'block';
-                } else {
-                    product.parentElement.style.display = 'none';
-                }
-            });
-        });
-    });
-    //nav=========
-
-</script>
-
+<script src="Script.js"></script>
 </body>
 </html>
