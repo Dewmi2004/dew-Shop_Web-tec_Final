@@ -119,3 +119,68 @@ const cartItems = document.getElementById('cartItems');
             });
         });
     });
+
+// User Database (Simulated)
+const users = [
+    { id: 'USR001', name: 'John Admin', username: 'admin', password: '123', role: 'Admin' },
+    { id: 'USR002', name: 'Sarah Reception', username: 'reception', password: 'recept123', role: 'Receptionist' },
+    { id: 'USR003', name: 'Mike Manager', username: 'mike', password: 'mike123', role: 'Admin' }
+];
+
+let currentUser = null;
+
+// Role selector styling
+document.querySelectorAll('.role-option').forEach(option => {
+    option.addEventListener('click', function() {
+        document.querySelectorAll('.role-option').forEach(opt => opt.classList.remove('active'));
+        this.classList.add('active');
+        this.querySelector('input[type="radio"]').checked = true;
+    });
+});
+
+// Login Form Handler
+document.getElementById('loginForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const username = document.getElementById('loginUsername').value;
+    const password = document.getElementById('loginPassword').value;
+    const role = document.querySelector('input[name="role"]:checked').value;
+
+    // Find user
+    const user = users.find(u =>
+        u.username === username &&
+        u.password === password &&
+        u.role === role
+    );
+
+    if (user) {
+        currentUser = user;
+        showDashboard();
+    } else {
+        alert('❌ Invalid credentials or role mismatch!');
+    }
+});
+
+// Show Dashboard
+function showDashboard() {
+    document.getElementById('loginScreen').classList.add('hidden');
+    document.getElementById('mainContent').classList.add('show');
+    document.getElementById('userBadge').classList.add('show');
+
+    // Display user info
+    document.getElementById('displayName').textContent = currentUser.name;
+    document.getElementById('displayRole').textContent = `${currentUser.role} • ${currentUser.id}`;
+}
+
+// Logout Handler
+document.getElementById('logoutBtn').addEventListener('click', function() {
+    if (confirm('Are you sure you want to logout?')) {
+        currentUser = null;
+        document.getElementById('loginScreen').classList.remove('hidden');
+        document.getElementById('mainContent').classList.remove('show');
+        document.getElementById('userBadge').classList.remove('show');
+        document.getElementById('loginForm').reset();
+        document.querySelectorAll('.role-option').forEach(opt => opt.classList.remove('active'));
+        document.querySelector('.role-option').classList.add('active');
+    }
+});

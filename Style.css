@@ -405,3 +405,212 @@ main {
 .search-input {
     max-width: 300px;
 }
+
+/* Login Screen */
+.login-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(135deg, #2d4a3e 0%, #1a2e2a 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.login-wrapper.hidden {
+    display: none;
+}
+
+.login-container {
+    background: rgba(13, 22, 19, 0.95);
+    border: 2px solid var(--accent);
+    border-radius: 20px;
+    padding: 3rem;
+    max-width: 450px;
+    width: 90%;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.login-logo {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.login-logo h1 {
+    color: var(--accent);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.login-logo p {
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.login-badge {
+    background: rgba(76, 175, 80, 0.2);
+    color: var(--accent);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+}
+
+.login-form .form-label {
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.login-form .form-control,
+.login-form .form-select {
+    background: var(--accent-light);
+    border: 1px solid var(--accent);
+    color: #fff;
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+}
+
+.login-form .form-control:focus,
+.login-form .form-select:focus {
+    background: var(--accent-light);
+    border-color: var(--accent-hover);
+    color: #fff;
+    box-shadow: 0 0 0 0.25rem rgba(76,175,80,0.25);
+}
+
+.login-form .form-control::placeholder {
+    color: var(--muted);
+}
+
+.role-selector {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.role-option {
+    flex: 1;
+    text-align: center;
+    padding: 0.75rem;
+    border: 2px solid var(--accent-light);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: var(--muted);
+}
+
+.role-option:hover {
+    border-color: var(--accent);
+    color: #fff;
+}
+
+.role-option.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+}
+
+.role-option input[type="radio"] {
+    display: none;
+}
+
+.btn-login {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 10px;
+    font-weight: 600;
+    width: 100%;
+    margin-top: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.btn-login:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(76,175,80,0.4);
+}
+
+.social-login {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.social-btn {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: var(--accent-light);
+    border: 1px solid var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+}
+
+.social-btn:hover {
+    background: var(--accent);
+    transform: scale(1.1);
+}
+
+/* User Profile Badge */
+.user-badge {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    background: linear-gradient(135deg, var(--gradient-top), var(--panel-dark));
+    border: 1px solid var(--accent-light);
+    border-radius: 15px;
+    padding: 0.75rem 1.5rem;
+    display: none;
+    align-items: center;
+    gap: 1rem;
+    z-index: 1001;
+}
+
+.user-badge.show {
+    display: flex;
+}
+
+.user-info {
+    text-align: right;
+}
+
+.user-info .user-name {
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.user-info .user-role {
+    color: var(--muted);
+    font-size: 0.75rem;
+}
+
+.btn-logout {
+    background: rgba(244, 67, 54, 0.2);
+    color: #f44336;
+    border: 1px solid #f44336;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-logout:hover {
+    background: #f44336;
+    color: #fff;
+}

@@ -11,7 +11,77 @@
 
 </head>
 <body>
+
+<!-- Login Screen -->
+<section>
+<div class="login-wrapper" id="loginScreen">
+    <div class="login-container">
+        <div class="login-logo">
+            <h1>🛍️ Dew Shop</h1>
+            <p>Fashion Paradise</p>
+        </div>
+
+        <div class="text-center">
+            <span class="login-badge">MEMBER LOGIN</span>
+        </div>
+
+        <form class="login-form" id="loginForm">
+            <div class="mb-3">
+                <label class="form-label">👤 Username</label>
+                <input type="text" class="form-control" id="loginUsername" placeholder="Enter your username" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">🔒 Password</label>
+                <input type="password" class="form-control" id="loginPassword" placeholder="Enter your password" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">👔 Select Role</label>
+                <div class="role-selector">
+                    <label class="role-option active">
+                        <input type="radio" name="role" value="Admin" checked>
+                        <div>🔐 Admin</div>
+                    </label>
+                    <label class="role-option">
+                        <input type="radio" name="role" value="Receptionist">
+                        <div>📝 Receptionist</div>
+                    </label>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-login">
+                Continue →
+            </button>
+        </form>
+
+        <div class="text-center mt-3">
+            <small style="color: var(--muted);">OR</small>
+        </div>
+
+        <div class="social-login">
+            <div class="social-btn" title="Google">🌐</div>
+            <div class="social-btn" title="Facebook">📘</div>
+            <div class="social-btn" title="Twitter">🐦</div>
+        </div>
+
+        <div class="text-center mt-3">
+            <small style="color: var(--muted);">Don't have an account? <a href="#" style="color: var(--accent);">Register Here</a></small>
+        </div>
+    </div>
+</div>
+
+<!-- User Profile Badge -->
+<div class="user-badge" id="userBadge">
+    <div class="user-info">
+        <div class="user-name" id="displayName">-</div>
+        <div class="user-role" id="displayRole">-</div>
+    </div>
+    <button class="btn-logout" id="logoutBtn">🚪 Logout</button>
+</div>
+</section>
 <!-- SIDEBAR -->
+<section>
 <div class="sidebar">
     <div class="icon active" title="Dashboard" data-target="dashboard">🏠</div>
     <div class="icon" title="Orders" data-target="orders">📋</div>
@@ -19,10 +89,11 @@
     <div class="icon" title="Customers" data-target="customers">👥</div>
     <div class="icon" title="Reports" data-target="reports">📊</div>
 </div>
-
+</section> <!--completed -->
 <!-- Main content -->
 <main>
     <!-- DASHBOARD TAB -->
+    <section>
     <div class="tab-content active" id="dashboard">
         <section class="hero">
             <div class="hero-content">
@@ -87,8 +158,10 @@
             </div>
         </div>
     </div>
+    </section> <!--add item list in items instead of default cards -->
 
     <!-- ORDERS TAB -->
+    <section>
     <div class="tab-content" id="orders">
         <div class="page-header">
             <h1>📋 Order Management</h1>
@@ -171,10 +244,6 @@
                         </select>
                     </div>
                     <div class="col-12">
-                        <label class="form-label">Notes</label>
-                        <textarea class="form-control" rows="2" placeholder="Additional notes..."></textarea>
-                    </div>
-                    <div class="col-12">
                         <button type="submit" class="btn btn-accent px-4">➕ Add Order</button>
                         <button type="reset" class="btn btn-outline-accent px-4 ms-2">🔄 Reset</button>
                     </div>
@@ -182,8 +251,10 @@
             </form>
         </div>
     </div>
+    </section> <!--not-completed -->
 
     <!-- ITEMS TAB -->
+    <section>
     <div class="tab-content" id="items">
         <div class="page-header">
             <h1>🏷️ Item Management</h1>
@@ -242,10 +313,7 @@
                             <option>Accessories</option>
                         </select>
                     </div>
-                    <div class="col-md-3">
-                        <label class="form-label">Brand</label>
-                        <input type="text" class="form-control" placeholder="Brand name" required>
-                    </div>
+
                     <div class="col-md-3">
                         <label class="form-label">Unit Price</label>
                         <input type="text" class="form-control" placeholder="Rs. 0.00" required>
@@ -262,14 +330,7 @@
                         <label class="form-label">Supplier</label>
                         <input type="text" class="form-control" placeholder="Supplier name" required>
                     </div>
-                    <div class="col-md-6">
-                        <label class="form-label">Description</label>
-                        <textarea class="form-control" rows="3" placeholder="Item description..."></textarea>
-                    </div>
-                    <div class="col-md-6">
-                        <label class="form-label">Additional Notes</label>
-                        <textarea class="form-control" rows="3" placeholder="Any additional information..."></textarea>
-                    </div>
+
                     <div class="col-12">
                         <button type="submit" class="btn btn-accent px-4">➕ Add Item</button>
                         <button type="reset" class="btn btn-outline-accent px-4 ms-2">🔄 Reset</button>
@@ -300,7 +361,6 @@
                         <th>Code</th>
                         <th>Item Name</th>
                         <th>Category</th>
-                        <th>Brand</th>
                         <th>Unit Price</th>
                         <th>Stock Qty</th>
                         <th>Reorder Level</th>
@@ -313,7 +373,6 @@
                         <td>#ITM-001</td>
                         <td>Silver Watch</td>
                         <td>Watches</td>
-                        <td>Rolex</td>
                         <td>Rs. 4,000.00</td>
                         <td>25</td>
                         <td>10</td>
@@ -328,7 +387,6 @@
                         <td>#ITM-006</td>
                         <td>Skinny Jeans</td>
                         <td>Clothing</td>
-                        <td>Levi's</td>
                         <td>Rs. 2,900.00</td>
                         <td>40</td>
                         <td>20</td>
@@ -344,7 +402,10 @@
             </div>
         </div>
     </div>
+    </section> <!--not-completed -->
 
+    <!-- CUSTOMERS TAB -->
+    <section>
     <div class="tab-content" id="customers">
         <div class="page-header">
             <h1>👥 Customer Management</h1>
@@ -437,14 +498,6 @@
                     <div class="col-md-3">
                         <label class="form-label">City</label>
                         <input type="text" class="form-control" id="city" placeholder="City" required>
-                    </div>
-                    <div class="col-md-9">
-                        <label class="form-label">Address</label>
-                        <textarea class="form-control" id="address" rows="2" placeholder="Enter full address..." required></textarea>
-                    </div>
-                    <div class="col-md-3">
-                        <label class="form-label">Postal Code</label>
-                        <input type="text" class="form-control" id="postalCode" placeholder="11000">
                     </div>
                     <div class="col-12">
                         <button type="submit" class="btn btn-accent px-4">➕ Add Customer</button>
@@ -573,9 +626,10 @@
             </div>
         </div>
     </div>
-
+</section> <!--not-completed -->
 
     <!-- REPORTS TAB -->
+    <section>
     <div class="tab-content" id="reports">
         <div class="page-header">
             <h1>📊 Reports</h1>
@@ -683,25 +737,28 @@
             </div>
         </div>
     </div>
-</main>
+    </section> <!--not-completed -->
 
-<!-- Cart Offcanvas -->
-<div class="offcanvas offcanvas-end" tabindex="-1" id="cartPanel">
-    <div class="offcanvas-header">
-        <h5 class="offcanvas-title">Order Summary</h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
-    </div>
-    <div class="offcanvas-body">
-        <div id="cartItems"></div>
-    </div>
-    <div class="cart-footer p-3">
-        <div class="d-flex justify-content-between mb-2">
-            <span>Total:</span>
-            <span id="totalValue">Rs. 0.00</span>
+    <!-- Cart Off canvas -->
+    <section>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="cartPanel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title">Order Summary</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div id="cartItems"></div>
+            </div>
+            <div class="cart-footer p-3">
+                <div class="d-flex justify-content-between mb-2">
+                    <span>Total:</span>
+                    <span id="totalValue">Rs. 0.00</span>
+                </div>
+                <button class="btn btn-accent w-100">Checkout</button>
+            </div>
         </div>
-        <button class="btn btn-accent w-100">Checkout</button>
-    </div>
-</div>
+    </section> <!--not-completed -->
+</main>
 
 <!-- Bootstrap Bundle -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
