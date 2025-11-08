@@ -11,87 +11,87 @@
 
 </head>
 <body>
-
+<main>
 <!-- Login Screen -->
-<section>
-<div class="login-wrapper" id="loginScreen">
-    <div class="login-container">
-        <div class="login-logo">
-            <h1>🛍️ Dew Shop</h1>
-            <p>Fashion Paradise</p>
-        </div>
+    <section>
+        <!-- LOGIN SCREEN -->
+        <div class="login-wrapper" id="loginScreen">
+            <div class="login-container">
+                <!-- Logo -->
+                <div class="login-logo text-center">
+                    <h1>🛍️ Dew Shop</h1>
+                    <p>Fashion Paradise</p>
+                </div>
 
-        <div class="text-center">
-            <span class="login-badge">MEMBER LOGIN</span>
-        </div>
+                <div class="text-center mb-3">
+                    <span class="login-badge">MEMBER LOGIN</span>
+                </div>
 
-        <form class="login-form" id="loginForm">
-            <div class="mb-3">
-                <label class="form-label">👤 Username</label>
-                <input type="text" class="form-control" id="loginUsername" placeholder="Enter your username" required>
-            </div>
+                <!-- LOGIN FORM -->
+                <form class="login-form" id="loginForm">
+                    <!-- Username -->
+                    <div class="mb-3">
+                        <label class="form-label">👤 Username</label>
+                        <input type="text" class="form-control" id="loginUsername" placeholder="Enter your username" required>
+                    </div>
 
-            <div class="mb-3">
-                <label class="form-label">🔒 Password</label>
-                <input type="password" class="form-control" id="loginPassword" placeholder="Enter your password" required>
-            </div>
+                    <!-- Password -->
+                    <div class="mb-3">
+                        <label class="form-label">🔒 Password</label>
+                        <input type="password" class="form-control" id="loginPassword" placeholder="Enter your password" required>
+                    </div>
 
-            <div class="mb-3">
-                <label class="form-label">👔 Select Role</label>
-                <div class="role-selector">
-                    <label class="role-option active">
-                        <input type="radio" name="role" value="Admin" checked>
-                        <div>🔐 Admin</div>
-                    </label>
-                    <label class="role-option">
-                        <input type="radio" name="role" value="Receptionist">
-                        <div>📝 Receptionist</div>
-                    </label>
+                    <!-- Role Selector -->
+                    <div class="mb-3">
+                        <label class="form-label">👔 Select Role</label>
+                        <div class="role-selector">
+                            <label class="role-option active">
+                                <input type="radio" name="role" value="Admin" checked>
+                                <div>🔐 Admin</div>
+                            </label>
+                            <label class="role-option">
+                                <input type="radio" name="role" value="Receptionist">
+                                <div>📝 Receptionist</div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn-login">Continue →</button>
+                </form>
+
+                <div class="text-center mt-3">
+                    <small style="color: var(--muted);">OR</small>
+                </div>
+
+                <!-- Social Login -->
+                <div class="social-login text-center mt-2">
+                    <div class="social-btn" title="Google">🌐</div>
+                    <div class="social-btn" title="Facebook">📘</div>
+                    <div class="social-btn" title="Twitter">🐦</div>
+                </div>
+
+                <div class="text-center mt-3">
+                    <small style="color: var(--muted);">
+                        Don't have an account?
+                        <a href="#" style="color: var(--accent);">Register Here</a>
+                    </small>
                 </div>
             </div>
-
-            <button type="submit" class="btn-login">
-                Continue →
-            </button>
-        </form>
-
-        <div class="text-center mt-3">
-            <small style="color: var(--muted);">OR</small>
         </div>
 
-        <div class="social-login">
-            <div class="social-btn" title="Google">🌐</div>
-            <div class="social-btn" title="Facebook">📘</div>
-            <div class="social-btn" title="Twitter">🐦</div>
-        </div>
-
-        <div class="text-center mt-3">
-            <small style="color: var(--muted);">Don't have an account? <a href="#" style="color: var(--accent);">Register Here</a></small>
-        </div>
+    </section> <!--completed -->
+    <!-- SIDEBAR -->
+    <section>
+    <div class="sidebar">
+        <div class="icon active" title="Dashboard" data-target="dashboard">🏠</div>
+        <div class="icon" title="Orders" data-target="orders">📋</div>
+        <div class="icon" title="Items" data-target="items">📦</div>
+        <div class="icon" title="Customers" data-target="customers">👥</div>
+        <div class="icon" title="Reports" data-target="reports">📊</div>
     </div>
-</div>
+    </section> <!--completed -->
 
-<!-- User Profile Badge -->
-<div class="user-badge" id="userBadge">
-    <div class="user-info">
-        <div class="user-name" id="displayName">-</div>
-        <div class="user-role" id="displayRole">-</div>
-    </div>
-    <button class="btn-logout" id="logoutBtn">🚪 Logout</button>
-</div>
-</section>
-<!-- SIDEBAR -->
-<section>
-<div class="sidebar">
-    <div class="icon active" title="Dashboard" data-target="dashboard">🏠</div>
-    <div class="icon" title="Orders" data-target="orders">📋</div>
-    <div class="icon" title="Items" data-target="items">📦</div>
-    <div class="icon" title="Customers" data-target="customers">👥</div>
-    <div class="icon" title="Reports" data-target="reports">📊</div>
-</div>
-</section> <!--completed -->
-<!-- Main content -->
-<main>
     <!-- DASHBOARD TAB -->
     <section>
     <div class="tab-content active" id="dashboard">
@@ -411,7 +411,6 @@
             <h1>👥 Customer Management</h1>
         </div>
 
-        <!-- Statistics Cards -->
         <div class="row mb-4">
             <div class="col-md-3">
                 <div class="stats-card">
@@ -473,6 +472,10 @@
                         <input type="date" class="form-control" id="dob" required>
                     </div>
                     <div class="col-md-3">
+                        <label class="form-label">City</label>
+                        <input type="text" class="form-control" id="city" placeholder="City" required>
+                    </div>
+                    <div class="col-md-3">
                         <label class="form-label">Gender</label>
                         <div class="d-flex gap-3 mt-2">
                             <div class="form-check">
@@ -495,12 +498,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <label class="form-label">City</label>
-                        <input type="text" class="form-control" id="city" placeholder="City" required>
-                    </div>
+
                     <div class="col-12">
-                        <button type="submit" class="btn btn-accent px-4">➕ Add Customer</button>
+                        <button id="customer_save_btn" type="button" class="btn btn-primary">➕ Add Customer</button>
+                        <button type="button" class="btn btn-primary" id="customer_update_btn">✏️ Update</button>
+                        <button type="button" class="btn btn-danger" id="customer_delete_btn">️ 🗑️ Delete</button>
                         <button type="reset" class="btn btn-outline-accent px-4 ms-2">🔄 Reset</button>
                     </div>
                 </div>
@@ -527,106 +529,24 @@
                     <thead>
                     <tr>
                         <th>Customer ID</th>
-                        <th>Full Name</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
                         <th>Email</th>
                         <th>Phone</th>
                         <th>Date of Birth</th>
-                        <th>Gender</th>
                         <th>City</th>
-                        <th>Actions</th>
+                        <th>Gender</th>
+<!--                        <th>Actions</th>-->
                     </tr>
                     </thead>
                     <tbody id="customerTableBody">
-                    <tr>
-                        <td>#CUST-001</td>
-                        <td>John Anderson</td>
-                        <td>john.anderson@email.com</td>
-                        <td>+94 71 234 5678</td>
-                        <td>1990-05-15</td>
-                        <td><span class="badge-status badge-completed">Male</span></td>
-                        <td>Colombo</td>
-                        <td>
-                            <button class="action-btn view me-1" title="View">👁️</button>
-                            <button class="action-btn edit me-1" title="Edit">✏️</button>
-                            <button class="action-btn delete" title="Delete">🗑️</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>#CUST-002</td>
-                        <td>Sarah Williams</td>
-                        <td>sarah.w@email.com</td>
-                        <td>+94 77 345 6789</td>
-                        <td>1988-08-22</td>
-                        <td><span class="badge-status badge-pending">Female</span></td>
-                        <td>Kandy</td>
-                        <td>
-                            <button class="action-btn view me-1" title="View">👁️</button>
-                            <button class="action-btn edit me-1" title="Edit">✏️</button>
-                            <button class="action-btn delete" title="Delete">🗑️</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>#CUST-003</td>
-                        <td>Michael Brown</td>
-                        <td>m.brown@email.com</td>
-                        <td>+94 76 456 7890</td>
-                        <td>1995-03-10</td>
-                        <td><span class="badge-status badge-completed">Male</span></td>
-                        <td>Galle</td>
-                        <td>
-                            <button class="action-btn view me-1" title="View">👁️</button>
-                            <button class="action-btn edit me-1" title="Edit">✏️</button>
-                            <button class="action-btn delete" title="Delete">🗑️</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>#CUST-004</td>
-                        <td>Emma Johnson</td>
-                        <td>emma.j@email.com</td>
-                        <td>+94 75 567 8901</td>
-                        <td>1992-11-30</td>
-                        <td><span class="badge-status badge-pending">Female</span></td>
-                        <td>Negombo</td>
-                        <td>
-                            <button class="action-btn view me-1" title="View">👁️</button>
-                            <button class="action-btn edit me-1" title="Edit">✏️</button>
-                            <button class="action-btn delete" title="Delete">🗑️</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>#CUST-005</td>
-                        <td>David Miller</td>
-                        <td>d.miller@email.com</td>
-                        <td>+94 72 678 9012</td>
-                        <td>1987-07-18</td>
-                        <td><span class="badge-status badge-completed">Male</span></td>
-                        <td>Matara</td>
-                        <td>
-                            <button class="action-btn view me-1" title="View">👁️</button>
-                            <button class="action-btn edit me-1" title="Edit">✏️</button>
-                            <button class="action-btn delete" title="Delete">🗑️</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>#CUST-006</td>
-                        <td>Sophia Taylor</td>
-                        <td>sophia.t@email.com</td>
-                        <td>+94 74 789 0123</td>
-                        <td>1993-12-05</td>
-                        <td><span class="badge-status badge-pending">Female</span></td>
-                        <td>Jaffna</td>
-                        <td>
-                            <button class="action-btn view me-1" title="View">👁️</button>
-                            <button class="action-btn edit me-1" title="Edit">✏️</button>
-                            <button class="action-btn delete" title="Delete">🗑️</button>
-                        </td>
-                    </tr>
+
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
-</section> <!--not-completed -->
+</section> <!--completed but add details to cards-->
 
     <!-- REPORTS TAB -->
     <section>
@@ -762,7 +682,12 @@
 
 
 <!-- Bootstrap Bundle -->
+<script src="lib/jQuery.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="Script.js"></script>
+<script type="module" src="controller/LoginController.js"></script>
+<script type="module" src="controller/CustomerController.js"></script>
+
 </body>
 </html>
