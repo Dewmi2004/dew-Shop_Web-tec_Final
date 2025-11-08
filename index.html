@@ -297,15 +297,15 @@
                 <div class="row g-3">
                     <div class="col-md-3">
                         <label class="form-label">Item Code</label>
-                        <input type="text" class="form-control" placeholder="ITM-001" required>
+                        <input type="text" class="form-control" id="itemCode" placeholder="ITM-001" required>
                     </div>
                     <div class="col-md-3">
                         <label class="form-label">Item Name</label>
-                        <input type="text" class="form-control" placeholder="Enter item name" required>
+                        <input type="text" class="form-control" id="itemName" placeholder="Enter item name" required>
                     </div>
                     <div class="col-md-3">
                         <label class="form-label">Category</label>
-                        <select class="form-select" required>
+                        <select class="form-select" id="itemCategory" required>
                             <option selected>Select category</option>
                             <option>Watches</option>
                             <option>Shoes</option>
@@ -316,23 +316,25 @@
 
                     <div class="col-md-3">
                         <label class="form-label">Unit Price</label>
-                        <input type="text" class="form-control" placeholder="Rs. 0.00" required>
+                        <input type="text" class="form-control" id="unitPrice" placeholder="Rs. 0.00" required>
                     </div>
                     <div class="col-md-3">
                         <label class="form-label">Quantity in Stock</label>
-                        <input type="number" class="form-control" placeholder="0" min="0" required>
+                        <input type="number" class="form-control" id="stockQty" placeholder="0" min="0" required>
                     </div>
                     <div class="col-md-3">
                         <label class="form-label">Reorder Level</label>
-                        <input type="number" class="form-control" placeholder="0" min="0" required>
+                        <input type="number" class="form-control" id="reorderLevel" placeholder="0" min="0" required>
                     </div>
                     <div class="col-md-3">
                         <label class="form-label">Supplier</label>
-                        <input type="text" class="form-control" placeholder="Supplier name" required>
+                        <input type="text" class="form-control" id="supplier" placeholder="Supplier name" required>
                     </div>
 
                     <div class="col-12">
-                        <button type="submit" class="btn btn-accent px-4">➕ Add Item</button>
+                        <button id="item_save_btn" type="button" class="btn btn-primary">➕ Add Item</button>
+                        <button type="button" class="btn btn-primary" id="item_update_btn">✏️ Update</button>
+                        <button type="button" class="btn btn-danger" id="item_delete_btn">️ 🗑️ Delete</button>
                         <button type="reset" class="btn btn-outline-accent px-4 ms-2">🔄 Reset</button>
                     </div>
                 </div>
@@ -364,39 +366,11 @@
                         <th>Unit Price</th>
                         <th>Stock Qty</th>
                         <th>Reorder Level</th>
+                        <th>Supplier</th>
                         <th>Status</th>
-                        <th>Actions</th>
                     </tr>
                     </thead>
-                    <tbody>
-                    <tr>
-                        <td>#ITM-001</td>
-                        <td>Silver Watch</td>
-                        <td>Watches</td>
-                        <td>Rs. 4,000.00</td>
-                        <td>25</td>
-                        <td>10</td>
-                        <td><span class="badge-status badge-completed">In Stock</span></td>
-                        <td>
-                            <button class="action-btn view me-1" title="View">👁️</button>
-                            <button class="action-btn edit me-1" title="Edit">✏️</button>
-                            <button class="action-btn delete" title="Delete">🗑️</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>#ITM-006</td>
-                        <td>Skinny Jeans</td>
-                        <td>Clothing</td>
-                        <td>Rs. 2,900.00</td>
-                        <td>40</td>
-                        <td>20</td>
-                        <td><span class="badge-status badge-completed">In Stock</span></td>
-                        <td>
-                            <button class="action-btn view me-1" title="View">👁️</button>
-                            <button class="action-btn edit me-1" title="Edit">✏️</button>
-                            <button class="action-btn delete" title="Delete">🗑️</button>
-                        </td>
-                    </tr>
+                    <tbody id="itemTableBody">
                     </tbody>
                 </table>
             </div>
@@ -536,7 +510,6 @@
                         <th>Date of Birth</th>
                         <th>City</th>
                         <th>Gender</th>
-<!--                        <th>Actions</th>-->
                     </tr>
                     </thead>
                     <tbody id="customerTableBody">
@@ -688,6 +661,7 @@
 <script src="Script.js"></script>
 <script type="module" src="controller/LoginController.js"></script>
 <script type="module" src="controller/CustomerController.js"></script>
+<script type="module" src="controller/ItemController.js"></script>
 
 </body>
 </html>
