@@ -208,7 +208,9 @@
                     </div>
                     <div class="col-md-3">
                         <label class="form-label">Customer Name</label>
-                        <input type="text" class="form-control" placeholder="Enter customer name" required>
+                        <select class="form-select" required>
+
+                        </select>
                     </div>
                     <div class="col-md-3">
                         <label class="form-label">Order Date</label>
@@ -225,7 +227,9 @@
                     </div>
                     <div class="col-md-4">
                         <label class="form-label">Product</label>
-                        <input type="text" class="form-control" placeholder="Product name" required>
+                        <select class="form-select" required>
+
+                        </select>
                     </div>
                     <div class="col-md-2">
                         <label class="form-label">Quantity</label>
@@ -371,6 +375,49 @@
                     </tr>
                     </thead>
                     <tbody id="itemTableBody">
+                    <tr>
+                        <td>#ITM-001</td>
+                        <td>Silver Watch</td>
+                        <td>Watches</td>
+                        <td>Rs. 4,000.00</td>
+                        <td>25</td>
+                        <td>10</td>
+                        <td>dew</td>
+                        <td><span class="badge-status badge-completed">In Stock</span></td>
+
+                    </tr>
+                    <tr>
+                        <td>#ITM-002</td>
+                        <td>Red Maxi Dress</td>
+                        <td>Clothing</td>
+                        <td>Rs. 3,200.00</td>
+                        <td>30</td>
+                        <td>15</td>
+                        <td>dew</td>
+                        <td><span class="badge-status badge-completed">In Stock</span></td>
+
+                    </tr>
+                    <tr>
+                        <td>#ITM-003</td>
+                        <td>Nike Air </td>
+                        <td>Shoes</td>
+                        <td>Rs. 8,500.00</td>
+                        <td>8</td>
+                        <td>10</td>
+                        <td>dew</td>
+                        <td><span class="badge-status badge-pending">Low Stock</span></td>
+                    </tr>
+                    <tr>
+                        <td>#ITM-004</td>
+                        <td>Leather Bag</td>
+                        <td>Accessories</td>
+                        <td>Rs. 7,200.00</td>
+                        <td>0</td>
+                        <td>5</td>
+                        <td>dew</td>
+                        <td><span class="badge-status badge-cancelled">Out of Stock</span></td>
+                    </tr>
+
                     </tbody>
                 </table>
             </div>
@@ -546,85 +593,10 @@
                         <th>Amount</th>
                         <th>Payment</th>
                         <th>Status</th>
-                        <th>Actions</th>
                     </tr>
                     </thead>
-                    <tbody>
-                    <tr>
-                        <td>#ORD-593</td>
-                        <td>John Doe</td>
-                        <td>2025-06-27</td>
-                        <td>Silver Watch</td>
-                        <td>2</td>
-                        <td>Rs. 8,000.00</td>
-                        <td>Card</td>
-                        <td><span class="badge-status badge-completed">Completed</span></td>
-                        <td>
-                            <button class="action-btn view me-1" title="View">👁️</button>
-                            <button class="action-btn edit me-1" title="Edit">✏️</button>
-                            <button class="action-btn delete" title="Delete">🗑️</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>#ORD-594</td>
-                        <td>Jane Smith</td>
-                        <td>2025-06-28</td>
-                        <td>Red Maxi Dress</td>
-                        <td>1</td>
-                        <td>Rs. 3,200.00</td>
-                        <td>Cash</td>
-                        <td><span class="badge-status badge-pending">Pending</span></td>
-                        <td>
-                            <button class="action-btn view me-1" title="View">👁️</button>
-                            <button class="action-btn edit me-1" title="Edit">✏️</button>
-                            <button class="action-btn delete" title="Delete">🗑️</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>#ORD-595</td>
-                        <td>Mike Johnson</td>
-                        <td>2025-06-28</td>
-                        <td>Nike Air Shoes</td>
-                        <td>1</td>
-                        <td>Rs. 8,500.00</td>
-                        <td>Online</td>
-                        <td><span class="badge-status badge-completed">Completed</span></td>
-                        <td>
-                            <button class="action-btn view me-1" title="View">👁️</button>
-                            <button class="action-btn edit me-1" title="Edit">✏️</button>
-                            <button class="action-btn delete" title="Delete">🗑️</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>#ORD-596</td>
-                        <td>Sarah Wilson</td>
-                        <td>2025-06-29</td>
-                        <td>Leather Bag</td>
-                        <td>1</td>
-                        <td>Rs. 7,200.00</td>
-                        <td>Card</td>
-                        <td><span class="badge-status badge-pending">Pending</span></td>
-                        <td>
-                            <button class="action-btn view me-1" title="View">👁️</button>
-                            <button class="action-btn edit me-1" title="Edit">✏️</button>
-                            <button class="action-btn delete" title="Delete">🗑️</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>#ORD-597</td>
-                        <td>David Brown</td>
-                        <td>2025-06-29</td>
-                        <td>Navy Blue Watch</td>
-                        <td>3</td>
-                        <td>Rs. 6,300.00</td>
-                        <td>Cash</td>
-                        <td><span class="badge-status badge-cancelled">Cancelled</span></td>
-                        <td>
-                            <button class="action-btn view me-1" title="View">👁️</button>
-                            <button class="action-btn edit me-1" title="Edit">✏️</button>
-                            <button class="action-btn delete" title="Delete">🗑️</button>
-                        </td>
-                    </tr>
+                    <tbody id="reportTableBody">
+
                     </tbody>
                 </table>
             </div>
@@ -662,6 +634,8 @@
 <script type="module" src="controller/LoginController.js"></script>
 <script type="module" src="controller/CustomerController.js"></script>
 <script type="module" src="controller/ItemController.js"></script>
+<script type="module" src="controller/OrderController.js"></script>
+
 
 </body>
 </html>
