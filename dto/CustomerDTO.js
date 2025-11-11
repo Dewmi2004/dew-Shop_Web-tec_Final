@@ -8,7 +8,6 @@ class CustomerDTO{
         this._dob =dob;
         this._city = city;
         this._gender = gender;
-
     }
 
     get c_id() {

@@ -1,4 +1,3 @@
-
 :root {
     --bg-dark: #0a0e0d;
     --panel-dark: #0d1613;
@@ -189,49 +188,6 @@ main {
     border: 1px solid #f44336;
 }
 
-.action-btn {
-    width: 35px;
-    height: 35px;
-    border-radius: 8px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border: none;
-    font-size: 1.1rem;
-}
-
-.action-btn.edit {
-    background: rgba(33, 150, 243, 0.2);
-    color: #2196f3;
-}
-
-.action-btn.edit:hover {
-    background: #2196f3;
-    color: #fff;
-}
-
-.action-btn.delete {
-    background: rgba(244, 67, 54, 0.2);
-    color: #f44336;
-}
-
-.action-btn.delete:hover {
-    background: #f44336;
-    color: #fff;
-}
-
-.action-btn.view {
-    background: rgba(156, 39, 176, 0.2);
-    color: #9c27b0;
-}
-
-.action-btn.view:hover {
-    background: #9c27b0;
-    color: #fff;
-}
-
 .stats-card {
     background: linear-gradient(135deg, var(--gradient-top), var(--panel-dark));
     border: 1px solid var(--accent-light);
@@ -405,7 +361,6 @@ main {
 .search-input {
     max-width: 300px;
 }
-
 /* Login Screen */
 .login-wrapper {
     position: fixed;
@@ -614,21 +569,12 @@ main {
     background: #f44336;
     color: #fff;
 }
+
+/* Utility Classes */
 .hidden {
     display: none;
 }
+
 .show {
     display: block;
-}
-.role-option {
-    cursor: pointer;
-    padding: 6px 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin: 5px;
-    display: inline-block;
-}
-.role-option.active {
-    background-color: #007bff;
-    color: #fff;
 }

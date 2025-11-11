@@ -15,8 +15,8 @@ export const get_customer = (index) => customer_db[index];
 //=====================UPDATE CUSTOMER========================
 export const update_customer = (index, customer) => customer_db[index] = customer;
 
-
-
-
-
-
+//==================== FOR ORDER SYSTEM ======================
+// Get customer by ID (for orders)
+export const get_customer_by_id = (customerId) => {
+    return customer_db.find(customer => customer.c_id === customerId);
+};

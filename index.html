@@ -162,100 +162,104 @@
 
     <!-- ORDERS TAB -->
     <section>
-    <div class="tab-content" id="orders">
-        <div class="page-header">
-            <h1>📋 Order Management</h1>
+        <div class="tab-content" id="orders">
+            <div class="page-header">
+                <h1>📋 Order Management <small class="text-muted">(Point of Sale)</small></h1>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col-md-3">
+                    <div class="stats-card">
+                        <div class="stats-icon">📦</div>
+                        <div class="stats-value">142</div>
+                        <div class="stats-label">Total Orders</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stats-card">
+                        <div class="stats-icon">⏳</div>
+                        <div class="stats-value">28</div>
+                        <div class="stats-label">Pending Orders</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stats-card">
+                        <div class="stats-icon">✅</div>
+                        <div class="stats-value">98</div>
+                        <div class="stats-label">Completed Orders</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stats-card">
+                        <div class="stats-icon">💰</div>
+                        <div class="stats-value"><span id="totalRevenueStat">LKR 0.00</span></div>
+                        <div class="stats-label">Total Revenue (Today)</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-card">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <h3 class="mb-4" style="color: var(--accent);">🍔 Select Menu Items</h3>
+                        <div class="lux-card mb-4 p-3 bg-light rounded shadow-sm">
+                            <div class="category-filters" id="categoryFilters">
+                                <button class="category-btn active" onclick="app.orderController.filterMenu('All')">All</button>
+                                <button class="category-btn" onclick="app.orderController.filterMenu('Watches')">Watches</button>
+                                <button class="category-btn" onclick="app.orderController.filterMenu('Shoes')">Shoes</button>
+                                <button class="category-btn" onclick="app.orderController.filterMenu('Clothing')">Clothing</button>
+                                <button class="category-btn" onclick="app.orderController.filterMenu('Accessories')">Accessories</button> </div>
+                        </div>
+
+                        <div class="row" id="menuGrid">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="content-card sticky-top" style="top: 20px;">
+                            <h3 class="mb-4" style="color: var(--accent);">🛒 Current Order</h3>
+
+                            <label class="form-label">Customer</label>
+                            <select class="form-select mb-3" id="customerSelect">
+                                <option value="">Walk-in Customer</option>
+                            </select>
+
+                            <div id="cartSummaryDisplay" class="mb-3">
+                                <p class="text-muted">Order items are managed in the **Order Summary** panel.</p>
+                                <button class="btn btn-outline-primary btn-sm w-100" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartPanel">
+                                    View/Edit Order Items
+                                </button>
+                            </div>
+
+                            <div class="d-flex align-items-center my-3">
+                                <label class="form-label me-3 mb-0" style="width: 100px;">Discount (%)</label>
+                                <input type="number" class="form-control" id="discountPercent" min="0" max="100" value="0" style="width: 80px;" onchange="app.orderController.updateCartDisplay()">
+                            </div>
+
+                            <div class="border-top pt-3 mt-3">
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span>Subtotal</span>
+                                    <span id="subtotal">LKR 0.00</span>
+                                </div>
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span>Tax (8%)</span>
+                                    <span id="taxAmount">LKR 0.00</span>
+                                </div>
+                                <div class="d-flex justify-content-between font-weight-bold fs-5">
+                                    <span>Total</span>
+                                    <span id="orderTotal">LKR 0.00</span>
+                                </div>
+                            </div>
+
+                            <button class="btn btn-accent w-100 mt-4"  id="placeOrderBtn" disabled>
+                                <i class="fas fa-check-circle me-2"></i>Place Order
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div class="row mb-4">
-            <div class="col-md-3">
-                <div class="stats-card">
-                    <div class="stats-icon">📦</div>
-                    <div class="stats-value">142</div>
-                    <div class="stats-label">Total Orders</div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="stats-card">
-                    <div class="stats-icon">⏳</div>
-                    <div class="stats-value">28</div>
-                    <div class="stats-label">Pending Orders</div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="stats-card">
-                    <div class="stats-icon">✅</div>
-                    <div class="stats-value">98</div>
-                    <div class="stats-label">Completed Orders</div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="stats-card">
-                    <div class="stats-icon">💰</div>
-                    <div class="stats-value">Rs. 1.2M</div>
-                    <div class="stats-label">Total Revenue</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="content-card">
-            <h3 class="mb-4" style="color: var(--accent);">➕ Add New Order</h3>
-            <form>
-                <div class="row g-3">
-                    <div class="col-md-3">
-                        <label class="form-label">Order ID</label>
-                        <input type="text" class="form-control" placeholder="ORD-001" required>
-                    </div>
-                    <div class="col-md-3">
-                        <label class="form-label">Customer Name</label>
-                        <select class="form-select" required>
-
-                        </select>
-                    </div>
-                    <div class="col-md-3">
-                        <label class="form-label">Order Date</label>
-                        <input type="date" class="form-control" required>
-                    </div>
-                    <div class="col-md-3">
-                        <label class="form-label">Status</label>
-                        <select class="form-select" required>
-                            <option selected>Pending</option>
-                            <option>Processing</option>
-                            <option>Completed</option>
-                            <option>Cancelled</option>
-                        </select>
-                    </div>
-                    <div class="col-md-4">
-                        <label class="form-label">Product</label>
-                        <select class="form-select" required>
-
-                        </select>
-                    </div>
-                    <div class="col-md-2">
-                        <label class="form-label">Quantity</label>
-                        <input type="number" class="form-control" placeholder="0" min="1" required>
-                    </div>
-                    <div class="col-md-3">
-                        <label class="form-label">Total Amount</label>
-                        <input type="text" class="form-control" placeholder="Rs. 0.00" required>
-                    </div>
-                    <div class="col-md-3">
-                        <label class="form-label">Payment Method</label>
-                        <select class="form-select" required>
-                            <option selected>Cash</option>
-                            <option>Card</option>
-                            <option>Online</option>
-                        </select>
-                    </div>
-                    <div class="col-12">
-                        <button type="submit" class="btn btn-accent px-4">➕ Add Order</button>
-                        <button type="reset" class="btn btn-outline-accent px-4 ms-2">🔄 Reset</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-    </section> <!--not-completed -->
+    </section>
 
     <!-- ITEMS TAB -->
     <section>
@@ -384,7 +388,6 @@
                         <td>10</td>
                         <td>dew</td>
                         <td><span class="badge-status badge-completed">In Stock</span></td>
-
                     </tr>
                     <tr>
                         <td>#ITM-002</td>
@@ -395,7 +398,6 @@
                         <td>15</td>
                         <td>dew</td>
                         <td><span class="badge-status badge-completed">In Stock</span></td>
-
                     </tr>
                     <tr>
                         <td>#ITM-003</td>
@@ -570,59 +572,59 @@
 
     <!-- REPORTS TAB -->
     <section>
-    <div class="tab-content" id="reports">
-        <div class="page-header">
-            <h1>📊 Reports</h1>
-        </div>
-
-        <div class="content-card">
-            <div class="d-flex justify-content-between align-items-center mb-4">
-                <h3 style="color: var(--accent); margin: 0;">📋 Orders List</h3>
-                <input type="text" class="form-control" style="max-width: 300px;" placeholder="🔍 Search orders...">
+        <div class="tab-content" id="reports">
+            <div class="page-header">
+                <h1>📊 Reports <small class="text-muted">(Order History)</small></h1>
             </div>
 
-            <div class="table-responsive">
-                <table class="table table-hover">
-                    <thead>
-                    <tr>
-                        <th>Order ID</th>
-                        <th>Customer</th>
-                        <th>Date</th>
-                        <th>Product</th>
-                        <th>Quantity</th>
-                        <th>Amount</th>
-                        <th>Payment</th>
-                        <th>Status</th>
-                    </tr>
-                    </thead>
-                    <tbody id="reportTableBody">
+            <div class="content-card">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h3 style="color: var(--accent); margin: 0;">📋 Orders List</h3>
+                    <input type="text" class="form-control" style="max-width: 300px;" placeholder="🔍 Search orders..." id="orderSearchInput">
+                </div>
 
-                    </tbody>
-                </table>
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Date & Time</th>
+                            <th>Customer</th>
+                            <th>Items</th>
+                            <th>Total</th>
+                            <th>Discount</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody id="historyTable">
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
-    </div>
-    </section> <!--not-completed -->
+    </section>
 
     <!-- Cart Off canvas -->
     <section>
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="cartPanel">
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="cartPanel" aria-labelledby="cartPanelLabel">
             <div class="offcanvas-header">
-                <h5 class="offcanvas-title">Order Summary</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+                <h5 class="offcanvas-title" id="cartPanelLabel">Order Summary (Cart)</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
+                <p class="text-muted">Items added from the menu:</p>
                 <div id="cartItems"></div>
             </div>
             <div class="cart-footer p-3">
                 <div class="d-flex justify-content-between mb-2">
-                    <span>Total:</span>
-                    <span id="totalValue">Rs. 0.00</span>
+                    <span>**Order Total:**</span>
+                    <span id="totalValue">LKR 0.00</span>
                 </div>
-                <button class="btn btn-accent w-100">Checkout</button>
+                <button class="btn btn-outline-accent w-100" data-bs-dismiss="offcanvas">Close & Back to POS</button>
             </div>
         </div>
-    </section> <!--not-completed -->
+    </section>
 </main>
 
 
@@ -635,7 +637,6 @@
 <script type="module" src="controller/CustomerController.js"></script>
 <script type="module" src="controller/ItemController.js"></script>
 <script type="module" src="controller/OrderController.js"></script>
-
 
 </body>
 </html>

@@ -1,85 +1,38 @@
 class OrderDTO {
-    constructor(orderId, customerName, orderDate, status, items,quantity, totalAmount, paymentMethod) {
+    constructor(orderId, customerId, date, time, totalCost, totalDiscount, totalTax, items) {
         this._orderId = orderId;
-        this._customerName = customerName;
-        this._orderDate = orderDate;
-        this._status = status;
-        this._items = items;
-        this._quantity = quantity;
-        this._totalAmount = totalAmount;
-        this._paymentMethod = paymentMethod;
+        this._customerId = customerId;
+        this._date = date;
+        this._time = time;
+        this._totalCost = parseFloat(totalCost);
+        this._totalDiscount = parseFloat(totalDiscount);
+        this._totalTax = parseFloat(totalTax);
+        this._items = items; // Array of CartItemDTOs
     }
 
-    // Order ID
-    get orderId() {
-        return this._orderId;
-    }
+    get orderId() { return this._orderId; }
+    set orderId(orderId) { this._orderId = orderId; }
 
-    set orderId(value) {
-        this._orderId = value;
-    }
+    get customerId() { return this._customerId; }
+    set customerId(customerId) { this._customerId = customerId; }
 
-    // Customer Name
-    get customerName() {
-        return this._customerName;
-    }
+    get date() { return this._date; }
+    set date(date) { this._date = date; }
 
-    set customerName(value) {
-        this._customerName = value;
-    }
+    get time() { return this._time; }
+    set time(time) { this._time = time; }
 
-    // Order Date
-    get orderDate() {
-        return this._orderDate;
-    }
+    get totalCost() { return this._totalCost; }
+    set totalCost(totalCost) { this._totalCost = parseFloat(totalCost); }
 
-    set orderDate(value) {
-        this._orderDate = value;
-    }
+    get totalDiscount() { return this._totalDiscount; }
+    set totalDiscount(totalDiscount) { this._totalDiscount = parseFloat(totalDiscount); }
 
-    // Items Array
-    get items() {
-        return this._items;
-    }
+    get totalTax() { return this._totalTax; }
+    set totalTax(totalTax) { this._totalTax = parseFloat(totalTax); }
 
-    set items(value) {
-        this._items = value;
-    }
-
-    // Total Amount
-    get totalAmount() {
-        return this._totalAmount;
-    }
-
-    set totalAmount(value) {
-        this._totalAmount = parseFloat(value);
-    }
-
-    // Payment Method
-    get paymentMethod() {
-        return this._paymentMethod;
-    }
-
-    set paymentMethod(value) {
-        this._paymentMethod = value;
-    }
-
-    // Status
-    get status() {
-        return this._status;
-    }
-
-    set status(value) {
-        this._status = value;
-    }
-
-    get quantity() {
-        return this._quantity;
-    }
-
-    set quantity(value) {
-        this._quantity = value;
-    }
+    get items() { return this._items; }
+    set items(items) { this._items = items; }
 }
 
 export default OrderDTO;
